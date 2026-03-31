@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ram Gupta — Process Engineer</title>
+<title>Ram Gupta — Chemical Engineering</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -722,6 +722,10 @@
     transform: translateY(0);
   }
 
+  /* Fallback: ensure content is visible if observer doesn't fire */
+  @media (prefers-reduced-motion: no-preference) {}
+  .fade-in { opacity: 1; transform: none; }
+
   @media (max-width: 768px) {
     nav { padding: 16px 24px; }
     .nav-links { display: none; }
@@ -744,7 +748,6 @@
   <ul class="nav-links">
     <li><a href="#skills">Skills</a></li>
     <li><a href="#experience">Experience</a></li>
-    <li><a href="#relevance">Fit</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -755,13 +758,14 @@
   <div class="hero-glow"></div>
   <div class="hero-glow2"></div>
   <div class="hero-content">
-    <div class="hero-tag">Process Engineering Intern — Available Fall 2026</div>
+    <div class="hero-tag">Chemical Engineering Intern — Available Summer & Fall 2026</div>
     <h1 class="hero-name">Ram<br><span>Gupta</span></h1>
     <p class="hero-title">// Chemical Engineering × Electrochemistry</p>
     <p class="hero-desc">
       Junior ChemE at UIUC building catalysts for next-generation electrolyzers.
       Hands-on with synthesis, characterization, and electrochemical testing —
       comfortable iterating fast in a research lab and owning experiments end-to-end.
+      Published contributor. Clean energy focus.
     </p>
     <div class="hero-ctas">
       <a href="#experience" class="btn-primary">View Experience →</a>
@@ -956,60 +960,42 @@
   </div>
 </section>
 
-<!-- RELEVANCE / FIT -->
+<!-- INTERESTS -->
 <section id="relevance">
   <div class="section-header">
     <span class="section-num">03</span>
-    <h2 class="section-title">Why Atomic Semi</h2>
+    <h2 class="section-title">Research Interests</h2>
     <div class="section-line"></div>
   </div>
-  <div class="rel-grid">
-
-    <div class="rel-card fade-in">
-      <div class="rel-card-label they">Atomic Semi needs</div>
-      <div class="rel-card-text">Hands-on experience with metrology tools (SEM, thin film measurement, AFM)</div>
+  <div class="skills-grid">
+    <div class="skill-card fade-in">
+      <div class="skill-card-icon">⚡</div>
+      <div class="skill-card-title">Clean Energy</div>
+      <div class="skill-card-text" style="font-size:14px;color:var(--text);font-weight:300;line-height:1.75;margin-top:8px;">
+        Focused on accelerating the green hydrogen economy through improved electrolyzer efficiency and cost-effective catalyst design. Interested in the full stack from materials to systems.
+      </div>
     </div>
-    <div class="rel-card fade-in" style="transition-delay:0.05s">
-      <div class="rel-card-label me">I bring</div>
-      <div class="rel-card-text">Extensive SEM and XRD characterization experience in a research lab, plus UV-Vis and NMR — routinely interpreting material structure from instrument output</div>
+    <div class="skill-card fade-in" style="transition-delay:0.1s">
+      <div class="skill-card-icon">🔬</div>
+      <div class="skill-card-title">Electrochemistry & Catalysis</div>
+      <div class="skill-card-text" style="font-size:14px;color:var(--text);font-weight:300;line-height:1.75;margin-top:8px;">
+        Deep interest in structure-property relationships in oxide catalysts, reaction mechanism analysis, and the interplay between material composition and electrochemical performance.
+      </div>
     </div>
-
-    <div class="rel-card fade-in" style="transition-delay:0.1s">
-      <div class="rel-card-label they">Atomic Semi needs</div>
-      <div class="rel-card-text">Recipe development mindset — designing, running, and iterating experiments quickly</div>
+    <div class="skill-card fade-in" style="transition-delay:0.2s">
+      <div class="skill-card-icon">⚗️</div>
+      <div class="skill-card-title">Materials Synthesis & Characterization</div>
+      <div class="skill-card-text" style="font-size:14px;color:var(--text);font-weight:300;line-height:1.75;margin-top:8px;">
+        Passionate about the experimental loop — designing synthesis routes, characterizing structure with XRD/SEM, and closing the feedback loop through testing and iteration.
+      </div>
     </div>
-    <div class="rel-card fade-in" style="transition-delay:0.15s">
-      <div class="rel-card-label me">I bring</div>
-      <div class="rel-card-text">Synthesized 20+ catalyst variants in the Hong Yang Group, iterating on composition and processing parameters to optimize electrochemical performance</div>
+    <div class="skill-card fade-in" style="transition-delay:0.3s">
+      <div class="skill-card-icon">🏗️</div>
+      <div class="skill-card-title">Process & Systems Engineering</div>
+      <div class="skill-card-text" style="font-size:14px;color:var(--text);font-weight:300;line-height:1.75;margin-top:8px;">
+        Interested in bridging lab-scale discoveries to scalable processes — applying thermodynamics, reaction engineering, and process control to real manufacturing and energy systems.
+      </div>
     </div>
-
-    <div class="rel-card fade-in" style="transition-delay:0.2s">
-      <div class="rel-card-label they">Atomic Semi needs</div>
-      <div class="rel-card-text">Thin film deposition and process engineering knowledge</div>
-    </div>
-    <div class="rel-card fade-in" style="transition-delay:0.25s">
-      <div class="rel-card-label me">I bring</div>
-      <div class="rel-card-text">Deep background in metal oxide thin film synthesis and characterization; currently taking electrochemistry coursework with direct thin-film relevance</div>
-    </div>
-
-    <div class="rel-card fade-in" style="transition-delay:0.3s">
-      <div class="rel-card-label they">Atomic Semi needs</div>
-      <div class="rel-card-text">Ability to read technical literature and translate to experimental design</div>
-    </div>
-    <div class="rel-card fade-in" style="transition-delay:0.35s">
-      <div class="rel-card-label me">I bring</div>
-      <div class="rel-card-text">Published research contributor — comfortable digesting academic papers and converting findings into actionable lab experiments in a collaborative group setting</div>
-    </div>
-
-    <div class="rel-card fade-in" style="transition-delay:0.4s">
-      <div class="rel-card-label they">Atomic Semi needs</div>
-      <div class="rel-card-text">Familiarity with data processing in Python (nice-to-have)</div>
-    </div>
-    <div class="rel-card fade-in" style="transition-delay:0.45s">
-      <div class="rel-card-label me">I bring</div>
-      <div class="rel-card-text">Python background through CS coursework (Data Structures & Algorithms, process control simulations); actively building applied data analysis skills</div>
-    </div>
-
   </div>
 </section>
 
@@ -1022,17 +1008,17 @@
   </div>
   <div class="contact-grid">
     <div class="contact-left fade-in">
-      <h3>Let's build<br><span>something precise.</span></h3>
+      <h3>Let's build<br><span>something together.</span></h3>
       <p>
-        I'm actively seeking process engineering internships for Fall 2026.
-        Reach out directly — happy to discuss my research, walk through experimental work,
-        or answer any questions about fit.
+        I'm actively seeking internships for Summer and Fall 2026 in chemical engineering,
+        electrochemistry, process engineering, and clean energy.
+        Reach out directly — happy to discuss my research or answer any questions.
       </p>
       <div class="contact-links">
-        <a href="mailto:gupta_rg@outlook.com" class="contact-link">
+        <a href="/cdn-cgi/l/email-protection#284f5d585c49775a4f68475d5c44474743064b4745" class="contact-link">
           <span class="contact-link-icon">@</span>
           <span class="contact-link-label">Email</span>
-          <span class="contact-link-val">gupta_rg@outlook.com</span>
+          <span class="contact-link-val"><span class="__cf_email__" data-cfemail="9ff8eaefebfec0edf8dff0eaebf3f0f0f4b1fcf0f2">[email&#160;protected]</span></span>
         </a>
         <a href="tel:+19084217914" class="contact-link">
           <span class="contact-link-icon">#</span>
@@ -1054,13 +1040,13 @@
     <div class="contact-right fade-in" style="transition-delay:0.2s">
       <h4>// Availability & Logistics</h4>
       <ul class="fit-list">
-        <li>Available September 2026 for 4–8 month commitment</li>
+        <li>Available Summer 2026 (May–Aug) and Fall 2026</li>
         <li>Authorized to work in the US — no sponsorship needed</li>
-        <li>Comfortable relocating to San Francisco / Lowell</li>
+        <li>Open to relocation for the right opportunity</li>
         <li>Junior at UIUC — BS Chemical Engineering (Minor: CS)</li>
-        <li>Open to in-person, on-site lab environment</li>
-        <li>Experienced working in active research labs with shared equipment</li>
+        <li>Comfortable in active research labs and fast-moving environments</li>
         <li>Strong documentation and report-writing habits from research group</li>
+        <li>Experience collaborating on 10-person interdisciplinary research teams</li>
       </ul>
     </div>
   </div>
@@ -1068,21 +1054,7 @@
 
 <footer>
   <span>Ram Gupta — UIUC ChemE '27</span>
-  <span>gupta_rg@outlook.com · 908-421-7914</span>
+  <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6b0c1e1b1f0a34190c2b041e1f0704040045080406">[email&#160;protected]</a> · 908-421-7914</span>
 </footer>
 
-<script>
-  // Intersection Observer for fade-ins
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-</script>
-
-</body>
-</html>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script
