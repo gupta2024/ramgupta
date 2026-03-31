@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ram Gupta — Process Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #090b0e;
+    --bg2: #0e1117;
+    --surface: #131820;
+    --border: #1e2736;
+    --accent: #4af0c4;
+    --accent2: #2196c4;
+    --amber: #f0b44a;
+    --text: #d4dce8;
+    --muted: #5a6a7e;
+    --mono: 'IBM Plex Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NOISE OVERLAY */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 48px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(9,11,14,0.85);
+    backdrop-filter: blur(16px);
+  }
+
+  .nav-logo {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 48px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(74,240,196,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(74,240,196,0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+  }
+
+  .hero-glow {
+    position: absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(74,240,196,0.06) 0%, transparent 70%);
+    top: -100px; right: -100px;
+    pointer-events: none;
+  }
+
+  .hero-glow2 {
+    position: absolute;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(33,150,196,0.05) 0%, transparent 70%);
+    bottom: 0; left: 100px;
+    pointer-events: none;
+  }
+
+  .hero-content {
+    max-width: 900px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    padding: 6px 14px;
+    border: 1px solid rgba(74,240,196,0.2);
+    border-radius: 2px;
+    background: rgba(74,240,196,0.04);
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.8); }
+  }
+
+  .hero-name {
+    font-family: var(--mono);
+    font-size: clamp(48px, 8vw, 88px);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+
+  .hero-name span { color: var(--accent); }
+
+  .hero-title {
+    font-family: var(--mono);
+    font-size: clamp(14px, 2vw, 18px);
+    color: var(--muted);
+    font-weight: 300;
+    margin-bottom: 32px;
+    letter-spacing: 0.04em;
+  }
+
+  .hero-desc {
+    font-size: 16px;
+    color: var(--text);
+    max-width: 560px;
+    line-height: 1.75;
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background: var(--accent);
+    color: #090b0e;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+  }
+
+  .btn-primary:hover {
+    background: #fff;
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background: transparent;
+    color: var(--text);
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* STATS ROW */
+  .stats-row {
+    display: flex;
+    gap: 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin: 0 48px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .stat {
+    flex: 1;
+    padding: 28px 32px;
+    border-right: 1px solid var(--border);
+  }
+
+  .stat:last-child { border-right: none; }
+
+  .stat-num {
+    font-family: var(--mono);
+    font-size: 32px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-num span { color: var(--accent); }
+
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* SECTION */
+  section {
+    padding: 100px 48px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 56px;
+  }
+
+  .section-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    padding: 4px 10px;
+    border: 1px solid rgba(74,240,196,0.3);
+  }
+
+  .section-title {
+    font-family: var(--mono);
+    font-size: clamp(22px, 3vw, 32px);
+    font-weight: 500;
+    color: #fff;
+    letter-spacing: -0.01em;
+  }
+
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+    max-width: 200px;
+  }
+
+  /* SKILLS */
+  #skills { background: var(--bg2); }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .skill-card {
+    background: var(--bg2);
+    padding: 32px;
+    transition: background 0.2s;
+  }
+
+  .skill-card:hover { background: var(--surface); }
+
+  .skill-card-icon {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .skill-card-title {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .skill-tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+    letter-spacing: 0.04em;
+    transition: all 0.15s;
+  }
+
+  .skill-tag:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(74,240,196,0.05);
+  }
+
+  /* EXPERIENCE */
+  .exp-list { display: flex; flex-direction: column; gap: 2px; }
+
+  .exp-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 36px 40px;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 40px;
+    transition: border-color 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .exp-item::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 2px;
+    background: var(--accent);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.3s;
+  }
+
+  .exp-item:hover::before { transform: scaleY(1); }
+  .exp-item:hover { border-color: rgba(74,240,196,0.2); }
+
+  .exp-meta { padding-top: 4px; }
+
+  .exp-date {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+  }
+
+  .exp-org {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+
+  .exp-badge {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10px;
+    padding: 3px 8px;
+    background: rgba(240,180,74,0.1);
+    border: 1px solid rgba(240,180,74,0.3);
+    color: var(--amber);
+    letter-spacing: 0.06em;
+    margin-top: 12px;
+  }
+
+  .exp-role {
+    font-family: var(--sans);
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 14px;
+  }
+
+  .exp-desc {
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.75;
+    font-weight: 300;
+    margin-bottom: 16px;
+  }
+
+  .exp-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .exp-bullets li {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .exp-bullets li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+
+  /* PUBLICATION */
+  .pub-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 36px 40px;
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+    margin-top: 2px;
+    transition: border-color 0.2s;
+  }
+
+  .pub-card:hover { border-color: rgba(74,240,196,0.2); }
+
+  .pub-icon {
+    font-family: var(--mono);
+    font-size: 28px;
+    color: var(--accent);
+    flex-shrink: 0;
+    line-height: 1;
+    padding-top: 4px;
+  }
+
+  .pub-journal {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--amber);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .pub-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+
+  .pub-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.65;
+    margin-bottom: 16px;
+  }
+
+  .pub-link {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border-bottom: 1px solid rgba(74,240,196,0.3);
+    padding-bottom: 2px;
+    transition: border-color 0.2s;
+  }
+
+  .pub-link:hover { border-color: var(--accent); }
+
+  /* RELEVANCE */
+  #relevance { background: var(--bg2); }
+
+  .rel-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .rel-card {
+    background: var(--bg2);
+    padding: 36px;
+    transition: background 0.2s;
+  }
+
+  .rel-card:hover { background: var(--surface); }
+
+  .rel-card-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .rel-card-label.they { color: var(--accent2); }
+  .rel-card-label.me { color: var(--accent); }
+
+  .rel-card-text {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .rel-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(74,240,196,0.05);
+    border: 1px solid rgba(74,240,196,0.15);
+    font-family: var(--mono);
+    font-size: 18px;
+    color: var(--accent);
+  }
+
+  /* CONTACT */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .contact-left h3 {
+    font-family: var(--mono);
+    font-size: clamp(22px, 3vw, 36px);
+    font-weight: 500;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  .contact-left h3 span { color: var(--accent); }
+
+  .contact-left p {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.75;
+    font-weight: 300;
+    margin-bottom: 32px;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    text-decoration: none;
+    transition: all 0.2s;
+    group: true;
+  }
+
+  .contact-link:hover {
+    border-color: var(--accent);
+    background: rgba(74,240,196,0.04);
+  }
+
+  .contact-link-icon {
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--accent);
+    width: 20px;
+  }
+
+  .contact-link-label {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    width: 80px;
+    flex-shrink: 0;
+  }
+
+  .contact-link-val {
+    font-size: 14px;
+    color: var(--text);
+  }
+
+  .contact-right {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 40px;
+  }
+
+  .contact-right h4 {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .fit-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .fit-list li {
+    display: flex;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--text);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  .fit-list li::before {
+    content: '✓';
+    font-family: var(--mono);
+    color: var(--accent);
+    flex-shrink: 0;
+    font-weight: 600;
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 24px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  footer span {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+  }
+
+  /* ANIMATIONS */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    .hero { padding: 100px 24px 60px; }
+    section { padding: 60px 24px; }
+    .stats-row { margin: 0 24px; flex-wrap: wrap; }
+    .stat { min-width: 50%; }
+    .exp-item { grid-template-columns: 1fr; gap: 16px; }
+    .rel-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    footer { padding: 20px 24px; flex-direction: column; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">RG://portfolio</a>
+  <ul class="nav-links">
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#relevance">Fit</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Process Engineering Intern — Available Fall 2026</div>
+    <h1 class="hero-name">Ram<br><span>Gupta</span></h1>
+    <p class="hero-title">// Chemical Engineering × Electrochemistry</p>
+    <p class="hero-desc">
+      Junior ChemE at UIUC building catalysts for next-generation electrolyzers.
+      Hands-on with synthesis, characterization, and electrochemical testing —
+      comfortable iterating fast in a research lab and owning experiments end-to-end.
+    </p>
+    <div class="hero-ctas">
+      <a href="#experience" class="btn-primary">View Experience →</a>
+      <a href="https://www.linkedin.com/in/ramgupta77" target="_blank" class="btn-secondary">LinkedIn ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-row">
+  <div class="stat fade-in">
+    <div class="stat-num">20<span>+</span></div>
+    <div class="stat-label">Catalysts Synthesized</div>
+  </div>
+  <div class="stat fade-in" style="transition-delay:0.1s">
+    <div class="stat-num">1<span>×</span></div>
+    <div class="stat-label">Peer-Reviewed Publication</div>
+  </div>
+  <div class="stat fade-in" style="transition-delay:0.2s">
+    <div class="stat-num">6<span>+</span></div>
+    <div class="stat-label">Characterization Techniques</div>
+  </div>
+  <div class="stat fade-in" style="transition-delay:0.3s">
+    <div class="stat-num">3<span>rd</span></div>
+    <div class="stat-label">Year, BS ChemE — UIUC</div>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-card fade-in">
+      <div class="skill-card-icon">⚗️</div>
+      <div class="skill-card-title">Materials Synthesis</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Metal oxide synthesis</span>
+        <span class="skill-tag">High entropy oxides</span>
+        <span class="skill-tag">Catalyst formulation</span>
+        <span class="skill-tag">Wet chemistry</span>
+      </div>
+    </div>
+    <div class="skill-card fade-in" style="transition-delay:0.1s">
+      <div class="skill-card-icon">🔬</div>
+      <div class="skill-card-title">Characterization & Metrology</div>
+      <div class="skill-tags">
+        <span class="skill-tag">XRD</span>
+        <span class="skill-tag">SEM</span>
+        <span class="skill-tag">UV-Vis</span>
+        <span class="skill-tag">NMR</span>
+        <span class="skill-tag">Cyclic Voltammetry</span>
+        <span class="skill-tag">Chronopotentiometry</span>
+      </div>
+    </div>
+    <div class="skill-card fade-in" style="transition-delay:0.2s">
+      <div class="skill-card-icon">⚡</div>
+      <div class="skill-card-title">Electrochemistry</div>
+      <div class="skill-tags">
+        <span class="skill-tag">PEM electrolyzers</span>
+        <span class="skill-tag">Oxygen evolution reaction</span>
+        <span class="skill-tag">Battery systems</span>
+        <span class="skill-tag">Al-air batteries</span>
+        <span class="skill-tag">Coulomb counting</span>
+      </div>
+    </div>
+    <div class="skill-card fade-in" style="transition-delay:0.3s">
+      <div class="skill-card-icon">💻</div>
+      <div class="skill-card-title">Programming & Analysis</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">C++</span>
+        <span class="skill-tag">Java</span>
+        <span class="skill-tag">Excel</span>
+        <span class="skill-tag">Data Structures</span>
+      </div>
+    </div>
+    <div class="skill-card fade-in" style="transition-delay:0.4s">
+      <div class="skill-card-icon">🏗️</div>
+      <div class="skill-card-title">Engineering</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Thermodynamics</span>
+        <span class="skill-tag">Heat & Mass Transfer</span>
+        <span class="skill-tag">Reaction Engineering</span>
+        <span class="skill-tag">Process Control</span>
+        <span class="skill-tag">Unit Operations</span>
+      </div>
+    </div>
+    <div class="skill-card fade-in" style="transition-delay:0.5s">
+      <div class="skill-card-icon">🤝</div>
+      <div class="skill-card-title">Collaboration</div>
+      <div class="skill-tags">
+        <span class="skill-tag">10-person research team</span>
+        <span class="skill-tag">Lab documentation</span>
+        <span class="skill-tag">Technical writing</span>
+        <span class="skill-tag">Cross-functional projects</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Experience</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="exp-list">
+    <div class="exp-item fade-in">
+      <div class="exp-meta">
+        <div class="exp-date">Aug 2024 — Present</div>
+        <div class="exp-org">Hong Yang Research Group</div>
+        <div class="exp-org">University of Illinois</div>
+        <div class="exp-badge">↗ Published</div>
+      </div>
+      <div>
+        <div class="exp-role">Undergraduate Researcher</div>
+        <p class="exp-desc">
+          Designing and executing catalyst synthesis experiments for green hydrogen production,
+          with a focus on structure-property relationships in complex oxide systems.
+          Acknowledged contributor on a peer-reviewed publication in Chemistry of Materials.
+        </p>
+        <ul class="exp-bullets">
+          <li>Synthesized 20+ heavy metal and high entropy oxide catalysts targeting the oxygen evolution reaction</li>
+          <li>Characterized catalyst structure using XRD, SEM, UV-Vis, NMR, and electrochemical methods</li>
+          <li>Ran cyclic voltammetry and chronopotentiometry experiments; analyzed data in Excel</li>
+          <li>Collaborated with 10-member team to optimize cost-efficient catalysts for PEM water electrolyzers</li>
+          <li>Contribution acknowledged in peer-reviewed publication: Chemistry of Materials (ACS, 2025)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item fade-in">
+      <div class="exp-meta">
+        <div class="exp-date">Aug 2023 — Present</div>
+        <div class="exp-org">Illinois Electric Motorsports</div>
+        <div class="exp-org">UIUC</div>
+      </div>
+      <div>
+        <div class="exp-role">Battery Systems Researcher</div>
+        <p class="exp-desc">
+          Investigating battery health monitoring methods for high-performance electric racecar applications,
+          building intuition for real-world electrochemical system behavior.
+        </p>
+        <ul class="exp-bullets">
+          <li>Researching coulomb counting algorithms to determine State of Health of Li-ion battery packs</li>
+          <li>Applying electrochemical theory to practical energy storage system design</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item fade-in">
+      <div class="exp-meta">
+        <div class="exp-date">Aug 2023 — Present</div>
+        <div class="exp-org">AIChE — ChemE Car</div>
+        <div class="exp-org">UIUC</div>
+        <div class="exp-badge">↗ Regionals 2025</div>
+      </div>
+      <div>
+        <div class="exp-role">Member — Battery Design Lead</div>
+        <p class="exp-desc">
+          Hands-on design, fabrication, and optimization of an aluminum-air battery power system
+          for competitive ChemE Car — team recently qualified for regionals for the first time in several years.
+        </p>
+        <ul class="exp-bullets">
+          <li>Designed and tested aluminum-air battery, optimizing composition for 15-minute target runtime</li>
+          <li>Iterated on electrode geometry, electrolyte concentration, and cell architecture</li>
+          <li>Presented weekly progress updates and troubleshooting analyses to full team</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pub-card fade-in">
+      <div class="pub-icon">§</div>
+      <div>
+        <div class="pub-journal">Chemistry of Materials — ACS Publications, 2025</div>
+        <div class="pub-title">Contribution to Peer-Reviewed Research on Metal Oxide Catalyst Development</div>
+        <p class="pub-desc">
+          Acknowledged experimental contributor to a study on high entropy and heavy metal oxide catalysts
+          for the oxygen evolution reaction in PEM water electrolyzers.
+          Research addresses cost reduction and efficiency improvement in green hydrogen production.
+        </p>
+        <a href="https://pubs.acs.org/doi/10.1021/acs.chemmater.5c01004" target="_blank" class="pub-link">
+          View Publication ↗
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RELEVANCE / FIT -->
+<section id="relevance">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Why Atomic Semi</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="rel-grid">
+
+    <div class="rel-card fade-in">
+      <div class="rel-card-label they">Atomic Semi needs</div>
+      <div class="rel-card-text">Hands-on experience with metrology tools (SEM, thin film measurement, AFM)</div>
+    </div>
+    <div class="rel-card fade-in" style="transition-delay:0.05s">
+      <div class="rel-card-label me">I bring</div>
+      <div class="rel-card-text">Extensive SEM and XRD characterization experience in a research lab, plus UV-Vis and NMR — routinely interpreting material structure from instrument output</div>
+    </div>
+
+    <div class="rel-card fade-in" style="transition-delay:0.1s">
+      <div class="rel-card-label they">Atomic Semi needs</div>
+      <div class="rel-card-text">Recipe development mindset — designing, running, and iterating experiments quickly</div>
+    </div>
+    <div class="rel-card fade-in" style="transition-delay:0.15s">
+      <div class="rel-card-label me">I bring</div>
+      <div class="rel-card-text">Synthesized 20+ catalyst variants in the Hong Yang Group, iterating on composition and processing parameters to optimize electrochemical performance</div>
+    </div>
+
+    <div class="rel-card fade-in" style="transition-delay:0.2s">
+      <div class="rel-card-label they">Atomic Semi needs</div>
+      <div class="rel-card-text">Thin film deposition and process engineering knowledge</div>
+    </div>
+    <div class="rel-card fade-in" style="transition-delay:0.25s">
+      <div class="rel-card-label me">I bring</div>
+      <div class="rel-card-text">Deep background in metal oxide thin film synthesis and characterization; currently taking electrochemistry coursework with direct thin-film relevance</div>
+    </div>
+
+    <div class="rel-card fade-in" style="transition-delay:0.3s">
+      <div class="rel-card-label they">Atomic Semi needs</div>
+      <div class="rel-card-text">Ability to read technical literature and translate to experimental design</div>
+    </div>
+    <div class="rel-card fade-in" style="transition-delay:0.35s">
+      <div class="rel-card-label me">I bring</div>
+      <div class="rel-card-text">Published research contributor — comfortable digesting academic papers and converting findings into actionable lab experiments in a collaborative group setting</div>
+    </div>
+
+    <div class="rel-card fade-in" style="transition-delay:0.4s">
+      <div class="rel-card-label they">Atomic Semi needs</div>
+      <div class="rel-card-text">Familiarity with data processing in Python (nice-to-have)</div>
+    </div>
+    <div class="rel-card fade-in" style="transition-delay:0.45s">
+      <div class="rel-card-label me">I bring</div>
+      <div class="rel-card-text">Python background through CS coursework (Data Structures & Algorithms, process control simulations); actively building applied data analysis skills</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Get in Touch</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-left fade-in">
+      <h3>Let's build<br><span>something precise.</span></h3>
+      <p>
+        I'm actively seeking process engineering internships for Fall 2026.
+        Reach out directly — happy to discuss my research, walk through experimental work,
+        or answer any questions about fit.
+      </p>
+      <div class="contact-links">
+        <a href="mailto:gupta_rg@outlook.com" class="contact-link">
+          <span class="contact-link-icon">@</span>
+          <span class="contact-link-label">Email</span>
+          <span class="contact-link-val">gupta_rg@outlook.com</span>
+        </a>
+        <a href="tel:+19084217914" class="contact-link">
+          <span class="contact-link-icon">#</span>
+          <span class="contact-link-label">Phone</span>
+          <span class="contact-link-val">908-421-7914</span>
+        </a>
+        <a href="https://www.linkedin.com/in/ramgupta77" target="_blank" class="contact-link">
+          <span class="contact-link-icon">↗</span>
+          <span class="contact-link-label">LinkedIn</span>
+          <span class="contact-link-val">/in/ramgupta77</span>
+        </a>
+        <a href="https://pubs.acs.org/doi/10.1021/acs.chemmater.5c01004" target="_blank" class="contact-link">
+          <span class="contact-link-icon">§</span>
+          <span class="contact-link-label">Publication</span>
+          <span class="contact-link-val">Chemistry of Materials (ACS)</span>
+        </a>
+      </div>
+    </div>
+    <div class="contact-right fade-in" style="transition-delay:0.2s">
+      <h4>// Availability & Logistics</h4>
+      <ul class="fit-list">
+        <li>Available September 2026 for 4–8 month commitment</li>
+        <li>Authorized to work in the US — no sponsorship needed</li>
+        <li>Comfortable relocating to San Francisco / Lowell</li>
+        <li>Junior at UIUC — BS Chemical Engineering (Minor: CS)</li>
+        <li>Open to in-person, on-site lab environment</li>
+        <li>Experienced working in active research labs with shared equipment</li>
+        <li>Strong documentation and report-writing habits from research group</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>Ram Gupta — UIUC ChemE '27</span>
+  <span>gupta_rg@outlook.com · 908-421-7914</span>
+</footer>
+
+<script>
+  // Intersection Observer for fade-ins
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
